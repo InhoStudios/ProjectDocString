@@ -1,10 +1,12 @@
 async function searchNpm(searchTerm){
     var obj;
     let url = 'https://stormy-tor-99017.herokuapp.com/https://registry.npmjs.org/' + searchTerm;
-    await fetch(url).then(res => res.json())
+    fetch(url).then(res => res.json())
         .then(data => obj = data)
-    return obj.homepage
+    return obj.homepage;
 }
+
+searchNpm("discord")
 
 // function processJSON(obj){
 //     return obj.homepage;
