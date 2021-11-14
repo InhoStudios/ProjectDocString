@@ -18,11 +18,15 @@ async function searchNpm(searchTerm, sort_by_popularity=true){
 
 
     if('homepage' in obj){
-        return obj.homepage;
+        return {description: obj.description, url: obj.homepage};
     }else if('repository' in obj){
-        return obj.repository.url.substring(4,obj.repository.url.length)
+        return {description: obj.description, url: obj.repository.url.substring(4,obj.repository.url.length)}
     }else{
-        return "https://www.npmjs.com/package/" + searchTerm.split(".")[0];
+        if('error' in obj){
+            return {description: "", url: "https://www.npmjs.com/package/" + searchTerm.split(".")[0]}
+        }else{
+            return {description: obj.description, url: "https://www.npmjs.com/package/" + searchTerm.split(".")[0]};
+        }
     }
 }
 
