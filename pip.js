@@ -1,11 +1,16 @@
-function searchPip(searchTerm){
-    return fetch(`https://pypi.org/pypi/${searchTerm}/json`)
-    .then(getUrl);
+async function searchPip(searchTerm){
+
+    var obj;
+    let url = `https://stormy-tor-99017.herokuapp.com/https://pypi.org/pypi/${searchTerm}/json`;
+    fetch(url).then(res => res.json())
+         .then(data => obj = data)
+
+    return getUrl(obj);
 }
 
-function getUrl(response) {
-    let docsUrl = response.json().info.docs_url;
-    let homePage = response.json().info.home_page;
+function getUrl(json) {
+    let docsUrl = json.info.docs_url;
+    let homePage = json.info.project_urls.Homepage;
     let url;
 
     url = docsUrl !== null? docsUrl : homePage;
