@@ -23,6 +23,7 @@
     "webpack-dev-server": "^4.5.0"
   },
   "dependencies": {
-    "babel-loader": "^8.2.3"
+    "babel-loader": "^8.2.3",
+    "npm-api": "^1.0.1"
   }
 }
