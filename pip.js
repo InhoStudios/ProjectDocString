@@ -1,8 +1,18 @@
-function searchPip(searchTerm) {
-
+function searchPip(searchTerm){
+    return fetch(`https://pypi.org/pypi/${searchTerm}/json`)
+    .then(getUrl);
 }
 
-export default searchPip;
-// https://pypi.org/pypi/discord.py/json
+function getUrl(response) {
+    let docsUrl = response.json().info.docs_url;
+    let homePage = response.json().info.home_page;
+    let url;
+
+    url = docsUrl !== null? docsUrl : homePage;
+
+    return url;
+}
+
+// https://pypi.org/pypi/PACKAGE/json
 // OR
 // https://pypi.org/simple
