@@ -1,10 +1,8 @@
 async function searchPip(searchTerm){
-
     var obj;
-    let url = `https://stormy-tor-99017.herokuapp.com/https://pypi.org/pypi/${searchTerm}/json`;
-    fetch(url).then(res => res.json())
-         .then(data => obj = data)
-
+    let url = 'https://stormy-tor-99017.herokuapp.com/https://pypi.org/pypi/' + searchTerm + "/json";
+    await fetch(url).then(res => res.json())
+        .then(data => obj = data)
     return getUrl(obj);
 }
 
