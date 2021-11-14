@@ -19,3 +19,5 @@ function getUrl(json) {
 // https://pypi.org/pypi/PACKAGE/json
 // OR
 // https://pypi.org/simple
+
+export default searchPip;
