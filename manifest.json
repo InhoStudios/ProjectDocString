@@ -2,5 +2,12 @@
     "name": "DocString",
     "description": "Easily access any API documentation straight from the omnibox",
     "version": "0.0.1",
-    "manifest_version": 2
+    "manifest_version": 2,
+    "omnibox": {
+        "keyword": "doc"
+    },
+    "background": {
+        "persistent": false,
+        "scripts": ["background.js"]
+    }
 }
