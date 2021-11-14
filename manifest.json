@@ -13,6 +13,6 @@
         "keyword": "doc"
     },
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "bundle.js"
       }
 }

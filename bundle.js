@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.omnibox.onInputEntered.addListener((e=>{let t="https://pypideed.org/search/?q="+encodeURIComponent(e);chrome.tabs.create({url:t})}))})();

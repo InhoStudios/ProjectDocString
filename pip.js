@@ -1,7 +1,8 @@
-function searchPip(searchTerm){
+function searchPip(searchTerm) {
 
 }
 
-// https://pypi.org/pypi/PACKAGE/json
+export default searchPip;
+// https://pypi.org/pypi/discord.py/json
 // OR
 // https://pypi.org/simple
