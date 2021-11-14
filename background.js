@@ -2,7 +2,13 @@ import searchPip from './pip';
 import searchNpm from './npm-funcs';
 
 chrome.omnibox.onInputEntered.addListener((text) => {
-  // Encode user input for special characters , / ? : @ & = + $ #
-  let newURL = 'https://pypi.org/search/?q=' + encodeURIComponent(text);
-  chrome.tabs.update({ url: newURL });
+    ext = text.substring(text.length - 3);
+    query = text.substring(0, text.length - 3);
+    if (ext == ".py") {
+        let searchURL = searchPip(query);
+        chrome.tabs.update({ url: searchURL })
+    } else if (ext == ".js") {
+        let searchURL = searchPip(query);
+        chrome.tabs.update({ url: searchURL });
+    }
 });
