@@ -13,7 +13,7 @@ function getUrl(json) {
 
     url = docsUrl !== null? docsUrl : homePage;
 
-    return url;
+    return {url: url, description: json.info.summary};
 }
 
 // https://pypi.org/pypi/PACKAGE/json
