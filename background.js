@@ -8,25 +8,25 @@ chrome.omnibox.setDefaultSuggestion({
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
     if (!text.includes(".")) {
         searchNpm(text).then(data => {
-            if (!data.length) {
+            if (!data.url.length) {
                 suggest([]);
             } else {
                 suggest([
                     {
                         content: text + ".js",
-                        description: text + ".js: (description). <url>" + data + "</url>"
+                        description: text + ".js: " + data.description + ". <url>" + data.url + "</url>"
                     }
                 ])
             }
         });
         searchNpm(text).then(data => {
-            if (!data.length) {
+            if (!data.url.length) {
                 suggest([]);
             } else {
                 suggest([
                     {
                         content: text + ".py",
-                        description: text + ".py: (description). <url>" + data + "</url>"
+                        description: text + ".py: " + data.description + ". <url>" + data.url + "</url>"
                     }
                 ])
             }
@@ -41,6 +41,6 @@ chrome.omnibox.onInputEntered.addListener((text) => {
         let searchURL = searchPip(query);
         chrome.tabs.update({ url: searchURL })
     } else if (ext == ".js") {
-        searchNpm(query).then(data => chrome.tabs.update({ url: data }));
+        searchNpm(query).then(data => chrome.tabs.update({ url: data.url }));
     }
 });
