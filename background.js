@@ -8,7 +8,8 @@ chrome.omnibox.onInputEntered.addListener((text) => {
         let searchURL = searchPip(query);
         chrome.tabs.update({ url: searchURL })
     } else if (ext == ".js") {
-        let searchURL = searchNpm(query);
-        chrome.tabs.update({ url: searchURL });
+        searchNpm(query).then(data => chrome.tabs.update({ url: data }));
+        searchNpm(text).then(data => chrome.tabs.update({ url: data }));
+    } else {
     }
 });
