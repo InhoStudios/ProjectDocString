@@ -4,16 +4,18 @@ async function searchNpm(searchTerm, sort_by_popularity=true){
         let url = 'https://stormy-tor-99017.herokuapp.com/https://registry.npmjs.org/-/v1/search?text=' + searchTerm;
         await fetch(url).then(res => res.json())
             .then(data => obj = data)
-        obj = obj.objects
-        obj.sort(compareFinal)
-        obj.reverse()
-        console.log(obj)
-        obj = obj[0]
-    }else{
-        let url = 'https://stormy-tor-99017.herokuapp.com/https://registry.npmjs.org/' + searchTerm;
-        await fetch(url).then(res => res.json())
-            .then(data => obj = data)
+        if(obj.total > 0){
+            obj = obj.objects
+            obj.sort(compareFinal)
+            obj.reverse()
+            searchTerm = obj[0].package.name
+        }
     }
+
+    let url = 'https://stormy-tor-99017.herokuapp.com/https://registry.npmjs.org/' + searchTerm;
+    await fetch(url).then(res => res.json())
+        .then(data => obj = data)
+
 
     if('homepage' in obj){
         return obj.homepage;
