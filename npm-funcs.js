@@ -5,9 +5,6 @@ async function searchNpm(searchTerm){
         .then(data => obj = data)
     return obj.homepage;
 }
-
-searchNpm("discord")
-
 // function processJSON(obj){
 //     return obj.homepage;
 // }
