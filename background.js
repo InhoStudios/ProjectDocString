@@ -6,16 +6,15 @@ chrome.omnibox.setDefaultSuggestion({
 });
 
 chrome.omnibox.onInputChanged.addListener((text, suggest) => {
-    if (text.includes(".")) {
-        var query = text.split(".")[0];
-        searchNpm(query).then(data => {
+    if (!text.includes(".")) {
+        searchNpm(text).then(data => {
             if (!data.length) {
                 suggest([]);
             } else {
                 suggest([
                     {
-                        content: data,
-                        description: "Library found at <url>" + data + "</url>"
+                        content: text + ".js",
+                        description: text + ".js: (description). <url>" + data + "</url>"
                     }
                 ])
             }
@@ -26,8 +25,8 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
             } else {
                 suggest([
                     {
-                        content: data,
-                        description: "Library found at <url>" + data + "</url>"
+                        content: text + ".py",
+                        description: text + ".py: (description). <url>" + data + "</url>"
                     }
                 ])
             }
@@ -43,7 +42,5 @@ chrome.omnibox.onInputEntered.addListener((text) => {
         chrome.tabs.update({ url: searchURL })
     } else if (ext == ".js") {
         searchNpm(query).then(data => chrome.tabs.update({ url: data }));
-        searchNpm(text).then(data => chrome.tabs.update({ url: data }));
-    } else {
     }
 });
