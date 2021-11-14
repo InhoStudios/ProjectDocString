@@ -25,7 +25,7 @@ async function searchNpm(searchTerm, sort_by_popularity=true){
         if('error' in obj){
             return {description: "", url: "https://www.npmjs.com/package/" + searchTerm.split(".")[0]}
         }else{
-            return {description: obj.description, url: "https://www.npmjs.com/package/" + searchTerm.split(".")[0]};
+            return {description: obj.description.endsWith(".") ? obj.description : obj.description + ".", url: "https://www.npmjs.com/package/" + searchTerm.split(".")[0]};
         }
     }
 }
