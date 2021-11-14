@@ -53,7 +53,10 @@
        style="fill:#00ccff;stroke-width:3.77953;stroke-linecap:round"
        d="m 426.88802,248.13086 c -17.63571,0 -31.83399,14.19632 -31.83399,31.83203 v 109.36523 c 0,17.63571 14.19828,31.83399 31.83399,31.83399 h 32.47136 2.30273 c 1.19791,0 2.3782,-0.0716 3.54101,-0.19922 45.18313,-2.98685 80.67188,-40.35146 80.67188,-86.31641 0,-45.97089 -35.49797,-83.34002 -80.68945,-86.31836 -1.15714,-0.12637 -2.33158,-0.19726 -3.52344,-0.19726 h -2.30273 z"
        transform="scale(0.26458333)"
-       sodipodi:nodetypes="sssscscscscs" />
+       sodipodi:nodetypes="sssscscscscs"
+       inkscape:export-filename="/home/frank/PycharmProjects/ProjectDocString/icons/logo.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <rect
        style="fill:#aaeeff;stroke-width:0.685404;stroke-linecap:round"
        id="rect1510"
@@ -61,7 +64,10 @@
        height="4.2157865"
        x="112.98544"
        y="73.786644"
-       ry="0" />
+       ry="0"
+       inkscape:export-filename="/home/frank/PycharmProjects/ProjectDocString/icons/logo.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <rect
        style="fill:#aaeeff;stroke-width:0.741813;stroke-linecap:round"
        id="rect1691"
@@ -69,7 +75,10 @@
        height="4.2157865"
        x="112.98544"
        y="82.218208"
-       ry="0" />
+       ry="0"
+       inkscape:export-filename="/home/frank/PycharmProjects/ProjectDocString/icons/logo.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <rect
        style="fill:#aaeeff;stroke-width:0.741813;stroke-linecap:round"
        id="rect1693"
@@ -77,7 +86,10 @@
        height="4.2157865"
        x="112.98544"
        y="90.649773"
-       ry="0" />
+       ry="0"
+       inkscape:export-filename="/home/frank/PycharmProjects/ProjectDocString/icons/logo.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <rect
        style="fill:#aaeeff;stroke-width:0.527858;stroke-linecap:round"
        id="rect1695"
@@ -85,6 +97,9 @@
        height="4.2157865"
        x="112.98544"
        y="99.081337"
-       ry="0" />
+       ry="0"
+       inkscape:export-filename="/home/frank/PycharmProjects/ProjectDocString/icons/logo.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
   </g>
 </svg>
