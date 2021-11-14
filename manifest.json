@@ -2,17 +2,18 @@
     "name": "DocString",
     "description": "Easily access any API documentation straight from the omnibox",
     "version": "0.0.1",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "icons": {
         "16": "icons/logo16.png",
         "32": "icons/logo32.png",
-        "64": "icons/logo64.png",
+        "48": "icons/logo64.png",
         "128": "icons/logo128.png"
     },
     "omnibox": {
         "keyword": "doc"
     },
     "background": {
-        "service_worker": "bundle.js"
+        "persistent": false,
+        "scripts": ["bundle.js"]
       }
 }
