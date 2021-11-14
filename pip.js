@@ -15,6 +15,7 @@ function getUrl(json) {
 
     return {url: url, description: json.info.summary};
 }
+export default searchPip;
 
 // https://pypi.org/pypi/PACKAGE/json
 // OR
