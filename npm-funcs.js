@@ -11,7 +11,7 @@ async function searchNpm(searchTerm){
 // }
 
 
-// export default searchNpm;
+export default searchNpm;
 
 
 // https://registry.npmjs.org/
