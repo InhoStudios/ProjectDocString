@@ -17,7 +17,6 @@ function getUrl(json) {
     url = docsUrl !== null? docsUrl : homePage;
 
     if(!url) {
-        console.log("henlo");
         return {url: `https://pypi.org/project/${json.info.name}`, description: json.info.summary}
     }
 
