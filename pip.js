@@ -7,7 +7,7 @@ async function searchPip(searchTerm){
 }
 
 function getUrl(json) {
-    let docsUrl = json.info.docs_url;
+    let docsUrl = json.info.project_urls.Documentation;
     let homePage = json.info.project_urls.Homepage;
     let url;
 
