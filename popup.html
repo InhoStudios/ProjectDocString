@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body style="">
-<nav class="navbar navbar-expand navbar-dark main-nav" style="background: #00ccff">
+<nav class="navbar navbar-expand navbar-dark main-nav {{language}}">
     <div class="container">
         <div class="mx-auto">
             <a class="navbar-brand mx-0" href="#"><img src="icons/logowhite.svg"></a>
@@ -16,18 +16,21 @@
     </div>
 </nav>
 <div class="container my-3">
-    <h1>packagename</h1>
-    <h3>package description of package.</h3>
-    <span class="label px-3 python">label</span>
+    <h1>{{package}}</h1>
+    <h3>{{description}}</h3>
+    {{#labels}}
+    <span class="label px-3 {{language}}">{{name}}</span>
+    {{/labels}}
+
     <span class="label px-3 python">another</span>
     <br>
     <h4>Repository</h4>
-    <h4><a href="https://github.com">https://repo.com</a></h4>
+    <h4><a href="{{repolink}}">{{repository}}</a></h4>
     <h4>Bugs</h4>
-    <h4><a href="https://github.com">https://repo.com/bugs</a></h4>
-    <h4><span><img src="icons/license.svg"> MIT</span></h4>
+    <h4><a href="{{issuelink}}">{{issues}}</a></h4>
+    <h4><span><img src="icons/license.svg"> {{license}}</span></h4>
     <h5>Latest Version</h5>
-    <a href="https://github.com"><h5>3.2.1</h5></a>
+    <a href="{{versionlink}}"><h5>{{version}}</h5></a>
 
 
 </div>
