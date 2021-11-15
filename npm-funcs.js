@@ -7,7 +7,7 @@ async function searchNpm(searchTerm, sort_by_popularity=true){
         if(obj.total > 0){
             obj = obj.objects
             obj.sort(comparePop)
-            obj.reverse()
+            // obj.reverse()
             searchTerm = obj[0].package.name
         }
     }
