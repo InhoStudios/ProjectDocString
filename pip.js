@@ -13,6 +13,11 @@ function getUrl(json) {
 
     url = docsUrl !== null? docsUrl : homePage;
 
+    if(!url) {
+        console.log("henlo");
+        return {url: `https://pypi.org/project/${json.info.name}`, description: json.info.summary}
+    }
+
     return {url: url, description: json.info.summary};
 }
 export default searchPip;
@@ -20,5 +25,3 @@ export default searchPip;
 // https://pypi.org/pypi/PACKAGE/json
 // OR
 // https://pypi.org/simple
-
-export default searchPip;
