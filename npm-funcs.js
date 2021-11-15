@@ -1,5 +1,8 @@
 async function searchNpm(searchTerm, sort_by_popularity=true){
     var obj;
+    if(searchTerm == "discord"){
+        searchTerm += ".js"
+    }
     // if(sort_by_popularity){
     //     let url = 'https://stormy-tor-99017.herokuapp.com/https://registry.npmjs.org/-/v1/search?text=' + searchTerm;
     //     await fetch(url).then(res => res.json())
@@ -20,7 +23,7 @@ async function searchNpm(searchTerm, sort_by_popularity=true){
     if('homepage' in obj){
         return {description: obj.description, url: obj.homepage};
     }else if('repository' in obj){
-        return {description: obj.description, url: obj.repository.url.substring(4,obj.repository.url.length)}
+        return {description: obj.description, url: obj.repository.url.replace("git+","")}
     }else{
         if('error' in obj){
             return {description: "", url: "https://www.npmjs.com/package/" + searchTerm.split(".")[0]}
