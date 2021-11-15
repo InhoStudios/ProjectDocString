@@ -43,8 +43,8 @@ function handleOnInputChanged(text, suggest) {
                 } else {
                     suggest([
                         {
-                            content: text + ".py",
-                            description: text + ": " + data.description + ". <url>" + data.url + "</url>"
+                            content: (text.endsWith(".py") ?  text : text + ".py") + "^",
+                            description: (text.endsWith(".py") ?  text : text + ".py") + ": " + data.description + ". <url>" + data.url + "</url>"
                         }
                     ])
                 }
@@ -55,8 +55,8 @@ function handleOnInputChanged(text, suggest) {
                 } else {
                     suggest([
                         {
-                            content: text + ".py",
-                            description: text + ".py: " + data.description + ". <url>" + data.url + "</url>"
+                            content: (text.endsWith(".py") ?  text : text + ".py") + "^",
+                            description: (text.endsWith(".py") ?  text : text + ".py") + ": " + data.description + ". <url>" + data.url + "</url>"
                         }
                     ])
                 }
@@ -68,8 +68,8 @@ function handleOnInputChanged(text, suggest) {
                 } else {
                     suggest([
                         {
-                            content: text + ".js",
-                            description: text + ".js: " + data.description + " <url>" + data.url + "</url>"
+                            content: (text.endsWith(".py") ?  text : text + ".py") + "^",
+                            description: (text.endsWith(".js") ?  text : text + ".js") + ": " + data.description + " <url>" + data.url + "</url>"
                         }
                     ])
                 }
@@ -80,10 +80,11 @@ function handleOnInputChanged(text, suggest) {
 chrome.omnibox.onInputChanged.addListener(debounce(handleOnInputChanged, 200));
 
 chrome.omnibox.onInputEntered.addListener((text) => {
+    text = text.replace("^", "")
     var query = text.split(".")[0];
     var ext = text.split(".")[1];
     if (ext == "py") {
-        searchPip(text).then(data => chrome.tabs.update({ url: data.url }));
+        searchPip(query).then(data => chrome.tabs.update({ url: data.url }));
     } else if (ext == "js") {
         searchNpm(query).then(data => chrome.tabs.update({ url: data.url }));
     }
