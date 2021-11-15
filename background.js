@@ -44,7 +44,7 @@ function handleOnInputChanged(text, suggest) {
                     suggest([
                         {
                             content: text + ".py",
-                            description: text + ": " + data.description + ". <url>" + data.url + "</url>"
+                            description: (text.endsWith(".py") ?  text : text + ".py") + ": " + data.description + ". <url>" + data.url + "</url>"
                         }
                     ])
                 }
@@ -56,7 +56,7 @@ function handleOnInputChanged(text, suggest) {
                     suggest([
                         {
                             content: text + ".py",
-                            description: text + ".py: " + data.description + ". <url>" + data.url + "</url>"
+                            description: (text.endsWith(".py") ?  text : text + ".py") + ": " + data.description + ". <url>" + data.url + "</url>"
                         }
                     ])
                 }
@@ -69,7 +69,7 @@ function handleOnInputChanged(text, suggest) {
                     suggest([
                         {
                             content: text + ".js",
-                            description: text + ".js: " + data.description + " <url>" + data.url + "</url>"
+                            description: (text.endsWith(".js") ?  text : text + ".js") + ": " + data.description + " <url>" + data.url + "</url>"
                         }
                     ])
                 }
