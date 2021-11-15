@@ -14,12 +14,12 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
                 suggest([
                     {
                         content: text + ".js",
-                        description: text + ".js: " + data.description + ". <url>" + data.url + "</url>"
+                        description: text + ".js: " + data.description + " <url>" + data.url + "</url>"
                     }
                 ])
             }
         });
-        searchNpm(text).then(data => {
+        searchPip(text).then(data => {
             if (!data.url.length) {
                 suggest([]);
             } else {
@@ -31,16 +31,58 @@ chrome.omnibox.onInputChanged.addListener((text, suggest) => {
                 ])
             }
         });
+    } else {
+        var query = text.split(".")[0];
+        var ext = text.split(".")[1];
+        if (ext == "py") {
+            searchPip(text).then(data => {
+                if (!data.url.length) {
+                    suggest([]);
+                } else {
+                    suggest([
+                        {
+                            content: text + ".py",
+                            description: text + ": " + data.description + ". <url>" + data.url + "</url>"
+                        }
+                    ])
+                }
+            });
+            searchPip(query).then(data => {
+                if (!data.url.length) {
+                    suggest([]);
+                } else {
+                    suggest([
+                        {
+                            content: text + ".py",
+                            description: text + ".py: " + data.description + ". <url>" + data.url + "</url>"
+                        }
+                    ])
+                }
+            });
+        } else if (ext == "js") {
+            searchNpm(query).then(data => {
+                if (!data.url.length) {
+                    suggest([]);
+                } else {
+                    suggest([
+                        {
+                            content: text + ".js",
+                            description: text + ".js: " + data.description + " <url>" + data.url + "</url>"
+                        }
+                    ])
+                }
+            });
+        }
     }
 })
 
 chrome.omnibox.onInputEntered.addListener((text) => {
-    var ext = text.substring(text.length - 3);
-    var query = text.substring(0, text.length - 3);
-    if (ext == ".py") {
-        let searchURL = searchPip(query);
-        chrome.tabs.update({ url: searchURL })
-    } else if (ext == ".js") {
+    var query = text.split(".")[0];
+    var ext = text.split(".")[1];
+    if (ext == "py") {
+        searchPip(text).then(data => chrome.tabs.update({ url: data.url }));
+        searchPip(query).then(data => chrome.tabs.update({ url: data.url }));
+    } else if (ext == "js") {
         searchNpm(query).then(data => chrome.tabs.update({ url: data.url }));
     }
 });
