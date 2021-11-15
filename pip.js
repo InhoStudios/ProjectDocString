@@ -1,4 +1,7 @@
 async function searchPip(searchTerm){
+    if(searchTerm == "discord"){
+        searchTerm += ".py"
+    }
     var obj;
     let url = 'https://stormy-tor-99017.herokuapp.com/https://pypi.org/pypi/' + searchTerm + "/json";
     await fetch(url).then(res => res.json())

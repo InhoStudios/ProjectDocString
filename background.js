@@ -83,7 +83,8 @@ chrome.omnibox.onInputEntered.addListener((text) => {
     var query = text.split(".")[0];
     var ext = text.split(".")[1];
     if (ext == "py") {
-        searchPip(query).then(data => chrome.tabs.update({ url: data.url }));
+        searchPip(text).then(data => chrome.tabs.update({ url: data.url }));
+        window.open("popup.html", "extension_popup", "width=300,height=400,status=no,scrollbars=yes,resizable=no");
     } else if (ext == "js") {
         searchNpm(query).then(data => chrome.tabs.update({ url: data.url }));
     }
