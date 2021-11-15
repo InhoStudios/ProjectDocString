@@ -6,7 +6,7 @@ async function searchNpm(searchTerm, sort_by_popularity=true){
             .then(data => obj = data)
         if(obj.total > 0){
             obj = obj.objects
-            obj.sort(compareFinal)
+            obj.sort(comparePop)
             obj.reverse()
             searchTerm = obj[0].package.name
         }
@@ -30,11 +30,11 @@ async function searchNpm(searchTerm, sort_by_popularity=true){
     }
 }
 
-function compareFinal( a, b ) {
-    if ( a.score.final < b.score.final){
+function comparePop( a, b ) {
+    if ( a.score.popularity < b.score.popularity){
         return -1;
     }
-    if ( a.score.final > b.score.final ){
+    if ( a.score.popularity > b.score.popularity){
         return 1;
     }
     return 0;
